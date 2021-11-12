@@ -1,0 +1,55 @@
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+  <div class="col-sm-9">
+    <h4 class="page-title">Properties</h4>
+  </div>
+  <div class="col-sm-3 text-right">
+    <button type="button" class="btn btn-primary" (click)="newProperty()"><i
+        class="zmdi zmdi-plus fa-2x text-white"></i></button>
+  </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+  <div class="col-sm-12 mb-4">
+    <div class="card">
+      <div class="card-header text-uppercase">
+        <div class="row">
+          <div class="col-12 col-lg-12 col-xl-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search By Name" />
+              <div class="input-group-append"> <span class="input-group-text"><i class="fa fa-search"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="card-body">
+        <ngx-datatable class="material" [rows]="data" [columns]="columns" [columnMode]="'force'" [headerHeight]="50"
+          [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
+          <ng-container *ngFor='let column of columns'>
+            <ngx-datatable-column *ngIf='column.name === "Actions"' name="Actions" prop="actions">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <!-- <a href="javascript: void(0);"><i class="fa fa-trash-o font-size-18 text-danger mr-2"></i></a> -->
+                <a href="javascript: void(0);"><i class="fa fa-pencil font-size-18 text-success mr-2"></i></a>
+                <a href="javascript: void(0);"><i class="fa fa-eye font-size-18 text-primary"></i></a>
+              </ng-template>
+            </ngx-datatable-column>
+            <!--
+            <ngx-datatable-column *ngIf='column.name === "Company"' name="Company" prop="company">
+              <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                <strong>{{value}}</strong>
+              </ng-template>
+            </ngx-datatable-column> -->
+
+            <ngx-datatable-column *ngIf='column.name !== "Actions"' name="{{column.name}}" prop="{{column.prop}}">
+            </ngx-datatable-column>
+          </ng-container>
+        </ngx-datatable>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-new-property #newPropertyModal></app-new-property>
