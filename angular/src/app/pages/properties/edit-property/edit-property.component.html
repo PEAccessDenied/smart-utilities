@@ -1,0 +1,119 @@
+<!-- <div class="container-fluid">
+    <div class="modal-header">
+        <h5 class="modal-title">Edit Property {{name}}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="close('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form (ngSubmit)="save()" [formGroup]="editPropertyForm">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-1">Name</label>
+                        <input type="text" formControlName="owner" class="form-control" placeholder="Company Name">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-2">Phone</label>
+                        <input type="text" formControlName="phone" class="form-control" placeholder="Company Phone">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Address</label>
+                        <input type="email" class="form-control" formControlName="address"
+                            placeholder="Company Email Address">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default mx-2" (click)="close('close click')">Cancel</button>
+                <button type="submit" class="btn btn-primary px-5">Save</button>
+            </div>
+        </form>
+    </div>
+</div> -->
+<ng-template #content role="document" let-modal="close">
+    <div class="modal-header">
+        <h5 class="modal-title">New Property</h5>
+        <button type="button" class="close" aria-label="Close" (click)="modal('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    <div class="modal-body">
+        <form (ngSubmit)="save()" [formGroup]="newPropertyForm">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-1">Name</label>
+                        <input type="text" class="form-control" placeholder="Company Name">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-2">Phone</label>
+                        <input type="text" class="form-control" placeholder="Company Phone">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="input-3">Email</label>
+                        <input type="email" class="form-control" placeholder="Company Email Address">
+                    </div>
+                </div>
+            </div>
+            <div class="text-right">
+                <button type="button" class="btn btn-default mx-2" (click)="modal('close click')">Cancel</button>
+                <button type="submit" class="btn btn-primary px-5">Save</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
