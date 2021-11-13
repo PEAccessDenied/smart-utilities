@@ -1,13 +1,14 @@
 ﻿using AutoMapper;
-using Developmenthub.SmartMetering.Authorization.Users;
-using Developmenthub.SmartMetering.Users.Dto;
+using SmartUtilities.Assets;
+using SmartUtilities.Authorization.Users;
+using SmartUtilities.Users.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties.Dtos
+namespace SmartUtilities.CitizenProperties.Dtos
 {
     public class CitizenPropertyProfile : Profile
     {

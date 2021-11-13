@@ -5,11 +5,14 @@ using Abp.Domain.Uow;
 using Abp.Runtime.Session;
 using Abp.UI;
 using AutoMapper;
-using Developmenthub.SmartMetering.Authorization.Users;
-using Developmenthub.SmartMetering.CitizenProperties.Dtos;
-using Developmenthub.SmartMetering.CitizenPropertyUsers;
+using Developmenthub.SmartMetering;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
+using SmartUtilities.Addresses;
+using SmartUtilities.Assets;
+using SmartUtilities.Authorization.Users;
+using SmartUtilities.CitizenProperties.Dtos;
+using SmartUtilities.CitizenPropertyUsers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,12 +20,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties
+namespace SmartUtilities.CitizenProperties
 {
-    public class CitizenPropertyAppService : SmartMeteringAppServiceBase, ICitizenPropertyAppService
+    public class CitizenPropertyAppService : SmartUtilitiesAppServiceBase,  ICitizenPropertyAppService
     {
         private readonly IRepository<CitizenProperty, Guid> _propertyRepository;
-        private readonly ICitizenPropertyManager _propertyManager;
         private readonly IRepository<Address, Guid> _addressRepository;
         private readonly IRepository<User, long> _userRepo;
         private readonly IWebHostEnvironment _environment;
@@ -33,14 +35,12 @@ namespace Developmenthub.SmartMetering.CitizenProperties
 
         public CitizenPropertyAppService(
             IRepository<CitizenProperty, Guid> propertyRepository,
-            ICitizenPropertyManager propertyManager,
             IRepository<Address, Guid> addressRepository,
             IRepository<User, long> userRepo,
             IWebHostEnvironment environment ,
             IRepository<CitizenPropertyUser, Guid> citizenPropUser)
         {
             _propertyRepository = propertyRepository;
-            _propertyManager = propertyManager;
             _addressRepository = addressRepository;
             _userRepo = userRepo;
             _environment = environment;
@@ -79,7 +79,7 @@ namespace Developmenthub.SmartMetering.CitizenProperties
                 WardId = createPropertyDto.WardId,
                 Consumption = createPropertyDto.Consumption
             };
-            var citizenProperty = await _propertyManager.CreateAsync(property);
+            var citizenProperty = await _propertyRepository.InsertAsync(property);
             await CurrentUnitOfWork.SaveChangesAsync();
 
             await _citizenPropertyUser.InsertAsync(new CitizenPropertyUser
@@ -124,10 +124,6 @@ namespace Developmenthub.SmartMetering.CitizenProperties
             return ObjectMapper.Map<AddPropertyUserDto>(result);
         }
 
-        public async Task DeleteAsync(DeletePropertyDto propertyId)
-        {
-            await _propertyManager.DeleteAsync(propertyId.Id);
-        }
 
         public async Task<ListResultDto<ListPropertyDto>> GetAllAsync()
         {
@@ -191,7 +187,7 @@ namespace Developmenthub.SmartMetering.CitizenProperties
             ObjectMapper.Map(input, property);
             property.Id = propertyId;
 
-            return ObjectMapper.Map<CitizenPropertyDto>(await _propertyManager.UpdateAsync(property));
+            return ObjectMapper.Map<CitizenPropertyDto>(await _propertyRepository.UpdateAsync(property));
         }
     }
 }

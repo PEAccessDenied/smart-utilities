@@ -7,14 +7,14 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering
+namespace SmartUtilities
 {
     public class Emailer
     {
         public static async Task Send(string to, string subject, string body, bool isBodyHtml)
         {
             MailAddress toEmail = new MailAddress(to);
-            MailAddress from = new MailAddress("no-reply@developmenthub.co.za", "Ubiquitous 360 Mailer");
+            MailAddress from = new MailAddress("no-reply@accessdenied.co.za", "Utilities Mailer");
             MailMessage mail = new MailMessage(from, toEmail)
             {
                 Subject = subject,

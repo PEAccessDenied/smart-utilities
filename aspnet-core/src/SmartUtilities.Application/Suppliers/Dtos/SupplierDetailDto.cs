@@ -1,24 +1,16 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Developmenthub.SmartMetering.Addresses;
-using Developmenthub.SmartMetering.CitizenProperties;
-using Developmenthub.SmartMetering.CitizenProperties.Dtos;
-using Developmenthub.SmartMetering.PowerPlants;
-using Developmenthub.SmartMetering.Reservoirs;
-using Developmenthub.SmartMetering.Reservoirs.Dtos;
-using Developmenthub.SmartMetering.Resources;
-using Developmenthub.SmartMetering.Resources.Dtos;
-using Developmenthub.SmartMetering.Wards.Dto;
+using SmartUtilities.Addresses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.Suppliers.Dtos
+namespace SmartUtilities.Suppliers.Dtos
 {
     [AutoMapFrom(typeof(Supplier))]
-    public class SupplierDetailDto: EntityDto<Guid>
+    public class SupplierDetailDto : EntityDto<Guid>
     {
         //Supplier properties
         public virtual string ContactName { get; set; }
@@ -33,8 +25,6 @@ namespace Developmenthub.SmartMetering.Suppliers.Dtos
         public string Telephone { get; set; }
         public string DirectLine { get; set; }
         public AddressDto Address { get; set; }
-        public AddressDto BranchAddress { get; set; }
-        public ServiceType ServiceOffered { get; set; }
         public string CompanyRegUrl { get; set; }
         public string CompanyRegPublicId { get; set; }
         public string CompanyTaxUrl { get; set; }
@@ -50,9 +40,7 @@ namespace Developmenthub.SmartMetering.Suppliers.Dtos
         public ICollection<ResourceListDto> Resources { get; set; }
         //Resevoir properties
         public ICollection<CreateReserviorInput> Reserviors { get; set; }
-        public ICollection<CreateGasPlantInput> GasPlant { get; set; }
         //Ward properties
-        public List<WardDetailDto> Wards { get; set; }
         public List<PropertyDetailDto> Properties { get; set; }
     }
 }

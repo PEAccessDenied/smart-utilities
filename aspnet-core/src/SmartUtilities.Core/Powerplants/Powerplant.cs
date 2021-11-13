@@ -2,6 +2,7 @@
 using Developmenthub.SmartMetering.SmartUsage;
 using SmartUtilities.Addresses;
 using SmartUtilities.Suppliers;
+using SmartUtilities.Wards;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

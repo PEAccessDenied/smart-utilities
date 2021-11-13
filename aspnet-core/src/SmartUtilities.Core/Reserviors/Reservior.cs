@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SmartUtilities.Reserviors
 {
-    public class Reservior
+    public class Reserviors
     {
         [Table("AppReservoirs")]
         public class Reservior : FullAuditedEntity<Guid>

@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Users;
 using Abp.Extensions;
+using SmartUtilities.Addresses;
+using SmartUtilities.CitizenPropertyUsers;
 
 namespace SmartUtilities.Authorization.Users
 {
@@ -9,6 +12,11 @@ namespace SmartUtilities.Authorization.Users
     {
         public const string DefaultPassword = "123qwe";
 
+        [ForeignKey(nameof(AddressId))]
+        public virtual Address Address { get; set; }
+        public string IdentityNo { get; set; }
+        public Guid? AddressId { get; set; }
+        public ICollection<CitizenPropertyUser> Properties { get; set; }
         public static string CreateRandomPassword()
         {
             return Guid.NewGuid().ToString("N").Truncate(16);

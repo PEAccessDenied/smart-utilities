@@ -1,6 +1,6 @@
 ﻿namespace SmartUtilities.Suppliers.Dtos
 {
-    public class CreatePowerPlantInput
+    public class ResourceListDto
     {
     }
 }

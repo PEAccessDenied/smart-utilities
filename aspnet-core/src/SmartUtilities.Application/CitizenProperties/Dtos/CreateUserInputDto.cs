@@ -1,13 +1,13 @@
 ﻿using Abp.AutoMapper;
 using Abp.Runtime.Validation;
-using Developmenthub.SmartMetering.Authorization.Users;
+using SmartUtilities.Authorization.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties.Dtos
+namespace SmartUtilities.CitizenProperties.Dtos
 {
     [AutoMapTo(typeof(User))]
     public class CreateUserInputDto

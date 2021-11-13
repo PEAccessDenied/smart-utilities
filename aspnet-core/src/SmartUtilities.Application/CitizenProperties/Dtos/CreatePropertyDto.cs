@@ -1,9 +1,8 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Developmenthub.SmartMetering.Addresses;
-using Developmenthub.SmartMetering.Authorization.Users;
-using Developmenthub.SmartMetering.CitizenProperties.Dtos;
-using Developmenthub.SmartMetering.Users.Dto;
+using SmartUtilities.Addresses;
+using SmartUtilities.Assets;
+using SmartUtilities.CitizenProperties.Dtos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -12,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties
+namespace SmartUtilities.CitizenProperties
 {
     [AutoMapTo(typeof(CitizenProperty))]
     public class CreatePropertyDto

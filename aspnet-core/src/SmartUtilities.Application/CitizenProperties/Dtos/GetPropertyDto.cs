@@ -1,13 +1,13 @@
 ﻿using Abp.AutoMapper;
-using Developmenthub.SmartMetering.Addresses;
-using Developmenthub.SmartMetering.CitizenPropertyUsers;
+using SmartUtilities.CitizenProperties.Dtos;
+using SmartUtilities.CitizenPropertyUsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties.Dtos
+namespace SmartUtilitiesCitizenProperties.Dtos
 {
     [AutoMapFrom(typeof(CitizenPropertyUser))]
     public class GetPropertyDto
@@ -15,6 +15,6 @@ namespace Developmenthub.SmartMetering.CitizenProperties.Dtos
         public CreateUserInputDto User { get; set; }
         public string ErfNo { get; set; }
         public string Type { get; set; }
-        public AddressDto Address { get; set; }
+        //public AddressDto Address { get; set; }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Developmenthub.SmartMetering.Addresses;
-using Developmenthub.SmartMetering.CitizenProperties.Dtos;
-using Developmenthub.SmartMetering.Users.Dto;
+using SmartUtilities.Addresses;
+using SmartUtilities.Users.Dto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties
+namespace SmartUtilitiesCitizenProperties
 {
     public class UpdatePropertyDto
     {

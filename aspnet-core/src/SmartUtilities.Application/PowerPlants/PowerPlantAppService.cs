@@ -2,30 +2,27 @@
 using Abp.Domain.Entities.Auditing;
 using Abp.Domain.Repositories;
 using Abp.UI;
-using Developmenthub.SmartMetering.CitizenProperties;
-using Developmenthub.SmartMetering.PowerPlants.Dtos;
 using Microsoft.EntityFrameworkCore;
+using SmartUtilities.Addresses;
+using SmartUtilities.Powerplants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.PowerPlants
+namespace SmartUtilities.PowerPlants
 {
-    public class PowerPlantAppService : SmartMeteringAppServiceBase, IPowerPlantAppService
+    public class PowerPlantAppService : SmartUtilitiesAppServiceBase, IPowerPlantAppService
     {
         private readonly IRepository<PowerPlant, Guid> _powerPlantRepository;
-        private readonly IPowerPlantManager _powerPlantManager;
         private readonly IRepository<Address, Guid> _addressRepository;
 
         public PowerPlantAppService(
             IRepository<PowerPlant, Guid> powerPlantRepository, 
-            IPowerPlantManager powerPlantManager,
             IRepository<Address, Guid> addressRepository)
         {
             _powerPlantRepository = powerPlantRepository;
-            _powerPlantManager = powerPlantManager;
             _addressRepository = addressRepository;
         }
 
@@ -37,7 +34,7 @@ namespace Developmenthub.SmartMetering.PowerPlants
             var addressId = await _addressRepository.InsertAndGetIdAsync(address);
             await CurrentUnitOfWork.SaveChangesAsync();
 
-            var powerPlant = await _powerPlantManager.CreateAsync(new PowerPlant
+            var powerPlant = await _powerPlantRepository.InsertAsync(new PowerPlant
             {
                 Name = input.Name,
                 SupplierId = input.SupplierId,
@@ -49,7 +46,7 @@ namespace Developmenthub.SmartMetering.PowerPlants
 
         public async Task DeleteAsync(Guid id)
         {
-            await _powerPlantManager.DeleteAsync(id);
+            await _powerPlantRepository.DeleteAsync(id);
         }
 
         public async Task<ListResultDto<ListPowerPlantDto>> GetAllAsync()
@@ -74,19 +71,19 @@ namespace Developmenthub.SmartMetering.PowerPlants
             return ObjectMapper.Map<ListPowerPlantDto>(powerPlant);
         }
 
-        public async Task<CreateUpdatePowerPlantDto> UpdateAsync(UpdatePowerPlantDto input)
-        {
-            var powerPlant = await _powerPlantRepository.FirstOrDefaultAsync(input.Id);
+        //public async Task<CreateUpdatePowerPlantDto> UpdateAsync(UpdatePowerPlantDto input)
+        //{
+        //    var powerPlant = await _powerPlantRepository.FirstOrDefaultAsync(input.Id);
 
-            if (powerPlant == null)
-            {
-                throw new UserFriendlyException("User was not updated because maybe it is deleted");
-            }
-            var id = input.Id;
-            var mappedResult = ObjectMapper.Map(input, powerPlant);
-            mappedResult.Id = id;
+        //    if (powerPlant == null)
+        //    {
+        //        throw new UserFriendlyException("User was not updated because maybe it is deleted");
+        //    }
+        //    var id = input.Id;
+        //    var mappedResult = ObjectMapper.Map(input, powerPlant);
+        //    mappedResult.Id = id;
 
-            return ObjectMapper.Map<CreateUpdatePowerPlantDto>(await _powerPlantManager.UpdateAsync(mappedResult));
-        }
+        //    return ObjectMapper.Map<CreateUpdatePowerPlantDto>(await _powerPlantManager.UpdateAsync(mappedResult));
+        //}
     }
 }

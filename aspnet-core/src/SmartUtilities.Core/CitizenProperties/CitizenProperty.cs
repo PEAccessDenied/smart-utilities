@@ -3,6 +3,7 @@ using Abp.Domain.Entities.Auditing;
 using SmartUtilities.Addresses;
 using SmartUtilities.CitizenPropertyUsers;
 using SmartUtilities.SmartMeters;
+using SmartUtilities.Wards;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

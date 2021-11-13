@@ -1,7 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
-using Developmenthub.SmartMetering.Addresses;
-using Developmenthub.SmartMetering.CitizenProperties.Dtos;
-using Developmenthub.SmartMetering.Suppliers.Dtos;
+using SmartUtilities.Addresses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.PowerPlants
+namespace SmartUtilities.PowerPlants
 {
     public class PowerPlantDto
     {

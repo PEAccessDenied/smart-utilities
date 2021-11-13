@@ -1,13 +1,12 @@
 ﻿using Abp.AutoMapper;
-using Developmenthub.SmartMetering.Authorization.Users;
-using Developmenthub.SmartMetering.CitizenPropertyUsers;
+using SmartUtilities.CitizenPropertyUsers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties.Dtos
+namespace SmartUtilities.CitizenProperties.Dtos
 {
     [AutoMapFrom(typeof(CitizenPropertyUser))]
     public class AddPropertyUserDto

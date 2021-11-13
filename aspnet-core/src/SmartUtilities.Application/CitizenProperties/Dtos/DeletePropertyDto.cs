@@ -1,13 +1,13 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Developmenthub.SmartMetering.SmartUsage.Dtos;
+using SmartUtilities.Assets;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.CitizenProperties
+namespace SmartUtilities.CitizenProperties
 {
     [AutoMapTo(typeof(CitizenProperty))]
     public class DeletePropertyDto: EntityDto<Guid>

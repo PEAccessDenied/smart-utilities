@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.Addresses
+namespace SmartUtilities.Addresses
 {
     [AutoMapTo(typeof(AddressDto))]
     public class AddressDto

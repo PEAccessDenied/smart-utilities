@@ -1,21 +1,13 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Developmenthub.SmartMetering.Addresses;
-using Developmenthub.SmartMetering.CitizenProperties;
-using Developmenthub.SmartMetering.PowerPlants;
-using Developmenthub.SmartMetering.Reservoirs.Dtos;
-using Developmenthub.SmartMetering.Resources;
-using Developmenthub.SmartMetering.Resources.Dtos;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.Suppliers.Dtos
-{ 
+namespace SmartUtilities.Suppliers.Dtos
+{
     [AutoMapFrom(typeof(Supplier))]
     public class SupplierListDto : EntityDto<Guid>
     {
@@ -48,10 +40,6 @@ namespace Developmenthub.SmartMetering.Suppliers.Dtos
         //public ICollection<CreateGasPlantInput> GasPlant { get; set; }
         public virtual double WaterVolume { get; set; }
         public virtual double EnergyVolume { get; set; }
-        public virtual ServiceType  ServiceOffered { get; set; }
-        public CompanyFilesDto[] CompanyFiles { get; set; }
-        public AddressDto Address { get; set; }
-        public AddressDto BranchAddress { get; set; }
-        public double Capacity { get; set; }
+
     }
 }

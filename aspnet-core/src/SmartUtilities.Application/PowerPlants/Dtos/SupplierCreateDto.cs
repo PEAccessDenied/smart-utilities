@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Developmenthub.SmartMetering.PowerPlants.Dtos
+namespace SmartUtilitiesg.PowerPlants.Dtos
 {
     public class SupplierCreateDto
     {

@@ -1,5 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
-using Developmenthub.SmartMetering.CitizenProperties;
+using SmartUtilities.Assets;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 

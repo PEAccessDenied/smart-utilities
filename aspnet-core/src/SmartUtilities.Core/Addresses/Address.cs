@@ -1,4 +1,5 @@
 ﻿using Abp.Domain.Entities.Auditing;
+using SmartUtilities.Wards;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

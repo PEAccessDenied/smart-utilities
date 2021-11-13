@@ -14,4 +14,11 @@
   <ItemGroup>
     <ProjectReference Include="..\SmartUtilities.Core\SmartUtilities.Core.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reservoirs\" />
+    <Folder Include="Resources\" />
+    <Folder Include="SmartDevice\" />
+    <Folder Include="SmartUsage\" />
+    <Folder Include="Wards\" />
+  </ItemGroup>
 </Project>
