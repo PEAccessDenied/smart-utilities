@@ -1,0 +1,165 @@
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-4">
+  <div class="col-sm-9">
+    <h4 class="page-title">Supplier Details</h4>
+  </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="row">
+  <!--Pills Starts-->
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-body">
+        <ul class="nav nav-pills nav-pills nav-justified top-icon" role="tablist">
+          <li class="nav-item"> <a class="nav-link active" data-toggle="pill" href="#piil-17"><i class="icon-home"></i>
+              <span class="hidden-xs">Detailed Information</span></a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" data-toggle="pill" href="#piil-18"><i class="icon-user"></i> <span
+                class="hidden-xs">Resources</span></a>
+          </li>
+          <li class="nav-item"> <a class="nav-link" data-toggle="pill" href="#piil-19"><i
+                class="icon-envelope-open"></i> <span class="hidden-xs">Billing Information</span></a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div id="piil-17" class="container tab-pane active">
+            <div class="row">
+              <div class="col-md-6">
+                <label>Company Information</label>
+              </div>
+            </div>
+            <form>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-1">Name</label>
+                    <input type="text" class="form-control" placeholder="Company Name">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-2">Phone</label>
+                    <input type="text" class="form-control" placeholder="Company Phone">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <div class="form-group">
+                    <label for="input-3">Email</label>
+                    <input type="email" class="form-control" placeholder="Company Email Address">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <label for="">Contact Person</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-1">First Name</label>
+                    <input type="text" class="form-control" placeholder="First Name">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-2">Last Name</label>
+                    <input type="text" class="form-control" placeholder="Last Name">
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-1">Phone</label>
+                    <input type="text" class="form-control" placeholder="Phone">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="form-group">
+                    <label for="input-2">Email Address</label>
+                    <input type="text" class="form-control" placeholder="Email Address">
+                  </div>
+                </div>
+              </div>
+              <div class="text-right">
+                <button type="button" class="btn btn-default mx-2">Cancel</button>
+                <button type="submit" class="btn btn-primary px-5">Save</button>
+              </div>
+            </form>
+          </div>
+          <div id="piil-18" class="container tab-pane fade">
+            <div class="row pb-2">
+              <div class="col-sm-12 text-right">
+                <button type="button" class="btn btn-primary" (click)="newResource()"><i
+                    class="zmdi zmdi-plus fa-2x text-white"></i></button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 col-lg-12 col-xl-12">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search By Name" />
+                  <div class="input-group-append"> <span class="input-group-text"><i class="fa fa-search"></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ngx-datatable class="material" [rows]="resourcesData" [columns]="resourcesTableColumns" [columnMode]="'force'" [headerHeight]="50"
+              [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
+              <ng-container *ngFor='let column of resourcesTableColumns'>
+                <ngx-datatable-column *ngIf='column.name === "Actions"' name="Actions" prop="actions">
+                  <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <a href="javascript: void(0);"><i class="fa fa-trash-o font-size-18 text-danger mr-2"></i></a>
+                    <a href="javascript: void(0);"><i class="fa fa-pencil font-size-18 text-success mr-2"></i></a>
+                    <a href="javascript: void(0);" (click)="view(row.id)"><i
+                        class="fa fa-eye font-size-18 text-primary"></i></a>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column *ngIf='column.name === "Company"' name="Company" prop="company">
+                  <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <strong>{{value}}</strong>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column *ngIf='column.name !== "Actions" && column.name !== "Company"'
+                  name="{{column.name}}" prop="{{column.prop}}">
+                </ngx-datatable-column>
+              </ng-container>
+            </ngx-datatable>
+          </div>
+          <div id="piil-19" class="container tab-pane fade">
+            <ngx-datatable class="material" [rows]="resourcesData" [columns]="billingTableColumns" [columnMode]="'force'" [headerHeight]="50"
+              [footerHeight]="50" [rowHeight]="'auto'" [limit]="10">
+              <ng-container *ngFor='let column of billingTableColumns'>
+                <ngx-datatable-column *ngIf='column.name === "Actions"' name="Actions" prop="actions">
+                  <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <a href="javascript: void(0);"><i class="fa fa-trash-o font-size-18 text-danger mr-2"></i></a>
+                    <a href="javascript: void(0);"><i class="fa fa-pencil font-size-18 text-success mr-2"></i></a>
+                    <a href="javascript: void(0);" (click)="view(row.id)"><i
+                        class="fa fa-eye font-size-18 text-primary"></i></a>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column *ngIf='column.name === "No. Wards"' name="No. Wards" prop="wards">
+                  <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+                    <strong>{{value}}</strong>
+                  </ng-template>
+                </ngx-datatable-column>
+
+                <ngx-datatable-column *ngIf='column.name !== "Actions" && column.name !== "Company"'
+                  name="{{column.name}}" prop="{{column.prop}}">
+                </ngx-datatable-column>
+              </ng-container>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-new-resource #newResourceModal></app-new-resource>

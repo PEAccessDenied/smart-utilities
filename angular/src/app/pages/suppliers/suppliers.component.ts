@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { suppliers } from '@app/shared/data/data';
 import { TableColumn } from '@swimlane/ngx-datatable';
 import { NewSupplierComponent } from './new-supplier/new-supplier.component';
@@ -13,7 +14,9 @@ export class SuppliersComponent implements OnInit {
   columns: TableColumn[] = []
   data = suppliers;
 
-  constructor() { }
+  constructor(
+    private router: Router,
+  ) { }
 
   ngOnInit() {
     this
@@ -25,6 +28,7 @@ export class SuppliersComponent implements OnInit {
     this.columns = [
       { name: 'Company' },
       { name: 'Phone' },
+      { name: 'Service Type'},
       { name: 'Areas Served' },
       { name: 'Actions' },
     ];
@@ -35,5 +39,9 @@ export class SuppliersComponent implements OnInit {
 
   newSupplier() {
     this.newSupplierModal.show();
+  }
+
+  view(id: number) {
+    this.router.navigate(['suppliers/', id]);
   }
 }

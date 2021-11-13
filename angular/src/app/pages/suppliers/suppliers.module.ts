@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SuppliersComponent } from './suppliers.component';
 import { NewSupplierComponent } from './new-supplier/new-supplier.component';
+import { SupplierDetailsComponent} from './supplier-details/supplier-details.component';
 import { SuppliersRoutingModule } from './suppliers-routing.module';
+import { NewResourceComponent } from './new-resource/new-resource.component';
 
 @NgModule({
   imports: [
@@ -11,6 +13,6 @@ import { SuppliersRoutingModule } from './suppliers-routing.module';
     SuppliersRoutingModule,
     SharedModule
   ],
-  declarations: [SuppliersComponent, NewSupplierComponent],
+  declarations: [SuppliersComponent, NewSupplierComponent, SupplierDetailsComponent, NewResourceComponent],
 })
 export class SuppliersModule { }

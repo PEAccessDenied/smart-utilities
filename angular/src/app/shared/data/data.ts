@@ -2,51 +2,61 @@
 
 const suppliers = [
   {
+    id: 1,
     phone: '043 405 54065',
     areasServed: 22,
     company: 'Johnson LLC CMP DDC',
   },
   {
+    id: 2,
     phone: '043 405 54065',
     areasServed: 55,
     company: 'Sealoud'
   },
   {
+    id: 3,
     phone: '043 405 54065',
     areasServed: 67,
     company: 'Velity',
   },
   {
+    id: 4,
     phone: '043 405 54065',
     areasServed: 34,
     company: 'Geekko'
   },
   {
+    id: 5,
     phone: '043 405 54065',
     areasServed: 5,
     company: 'Suretech'
   },
   {
+    id: 6,
     phone: '043 405 54065',
     areasServed: 11,
     company: 'Ecosys'
   },
   {
+    id: 7,
     phone: '043 405 54065',
     areasServed: 13,
     company: 'Hopeli'
   },
   {
+    id: 8,
     phone: '043 405 54065',
     areasServed: 11,
     company: 'Polarium'
   },
   {
+    id: 9,
     phone: '043 405 54065',
     areasServed: 6,
     company: 'Dogspa'
   },
   {
+    id: 10,
     phone: '043 405 54065',
     areasServed: 4,
     company: 'Bisba'
@@ -198,4 +208,25 @@ const smartMeters = [
     usage: 23453
   }
 ]
-export { suppliers, properties, smartMeters };
+
+const resources = [
+  {
+    id: 1,
+    category: "Reservoir",
+    resourceType: "Fixed",
+    name: "Elangeni",
+    location: "East London",
+    wards: 3,
+    capacity: 19908,
+  },
+  {
+    id: 2,
+    category: "Dam",
+    resourceType: "Fixed",
+    name: "Emthonjeni",
+    location: "Gqeberha",
+    wards: 6,
+    capacity: 18904,
+  },
+]
+export { suppliers, properties, smartMeters, resources };

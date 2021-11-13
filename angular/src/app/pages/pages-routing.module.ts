@@ -20,10 +20,17 @@ const routes: Routes = [
           import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
       },
       {
-        path: 'statements',
+        path: 'supplier-statements',
         loadChildren: () =>
-          import('./statements/statements.module').then(
-            (m) => m.StatementsModule
+          import('./supplier-statements/supplier-statements.module').then(
+            (m) => m.SupplierStatementsModule
+          ),
+      },
+      {
+        path: 'citizen-statements',
+        loadChildren: () =>
+          import('./citizen-statements/citizen-statements.module').then(
+            (m) => m.CitizenStatementsModule
           ),
       },
       {
